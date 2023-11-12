@@ -1,30 +1,43 @@
 ﻿using System.ComponentModel;
 using System.Net.Sockets;
 
-Memory<byte> buffer = new byte[] { 0,1,2,3,4,5,6,7 };
-int openedConnections = 0;
-
-while (true)
+internal class Program
 {
-    try
+    public static volatile int openedConnections = 0;
+
+    private static async Task Main(string[] args)
     {
-        TcpClient client = new();
+        Memory<byte> buffer = new byte[] { 0, 1, 2, 3, 4, 5, 6, 7 };
+        
 
-        await client.ConnectAsync(args[0], 16000);
+        while (true)
+        {
+            _ = CreateNewConnection();
 
-        await client.Client.SendAsync(buffer, SocketFlags.None);
+            if (openedConnections % 1000 == 0)
+            {
+                Console.WriteLine(openedConnections);
+            }
+        }
 
-        client.Close();
+        async Task CreateNewConnection()
+        {
+            try
+            {
+                TcpClient client = new();
 
-        openedConnections++;
-    }
-    catch (Exception ex)
-    { 
-        Console.WriteLine(ex);
-    }
+                await client.ConnectAsync(args[0], 16000);
 
-    if (openedConnections % 1000 == 0)
-    {
-        Console.WriteLine(openedConnections);
+                await client.Client.SendAsync(buffer, SocketFlags.None);
+
+                client.Close();
+
+                Interlocked.Increment(ref openedConnections);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
     }
 }
