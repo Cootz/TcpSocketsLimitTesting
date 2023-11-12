@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 
 internal class Program
 {
@@ -9,14 +8,13 @@ internal class Program
     {
         Memory<byte> buffer = new byte[] { 0, 1, 2, 3, 4, 5, 6, 7 };
         
-
         while (true)
         {
             _ = CreateNewConnection();
 
             if (openedConnections % 1000 == 0)
             {
-                Console.WriteLine(openedConnections);
+                Console.WriteLine($"Total connections opened: {openedConnections}");
             }
         }
 

@@ -1,7 +1,5 @@
-﻿
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Timers;
 
 internal class Program
 {
@@ -47,7 +45,9 @@ internal class Program
 
         static void displayReceivedConnections()
         {
-            DateTime lastTwoMin = DateTime.Now - TimeSpan.FromMinutes(2);
+            const int timeSpan = 2;
+
+            DateTime dateTimeOffset = DateTime.Now - TimeSpan.FromMinutes(timeSpan);
 
             int connectionsReceived = 0;
 
@@ -55,14 +55,14 @@ internal class Program
             {
                 foreach (DateTime dateTime in connection.Value)
                 {
-                    if (dateTime >= lastTwoMin)
+                    if (dateTime >= dateTimeOffset)
                     {
                         connectionsReceived++;
                     }
                 }
             }
 
-            Console.WriteLine($"Connections received: {connectionsReceived}");
+            Console.WriteLine($"Connections received for last {timeSpan} min(s): {connectionsReceived}");
         }
     }
 
