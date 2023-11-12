@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "TcpSocketsLimitTesting\Server.csproj", "{887B5357-6A73-45D5-B562-2C6F2D1E6F8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{54D17BED-1D63-4DE1-BF25-63954A41A8A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{887B5357-6A73-45D5-B562-2C6F2D1E6F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{887B5357-6A73-45D5-B562-2C6F2D1E6F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{887B5357-6A73-45D5-B562-2C6F2D1E6F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{887B5357-6A73-45D5-B562-2C6F2D1E6F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D17BED-1D63-4DE1-BF25-63954A41A8A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D17BED-1D63-4DE1-BF25-63954A41A8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D17BED-1D63-4DE1-BF25-63954A41A8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D17BED-1D63-4DE1-BF25-63954A41A8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1F79E6F-1021-433E-95AC-2D21E0893574}
+	EndGlobalSection
+EndGlobal
